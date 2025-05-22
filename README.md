@@ -8,7 +8,7 @@ This Repo makes complex concepts easy to understand.
 - Understanding of pointers/references
 - Basic JavaScript knowledge
 
-## Course Content 📚
+## Content 📚
 
 ### Technical Fundamentals
 
