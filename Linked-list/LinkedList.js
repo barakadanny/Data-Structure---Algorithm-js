@@ -25,6 +25,7 @@ class LinkedList {
     this.length++;
     return this;
   }
+
   pop() {
     if (!this.head) return undefined;
 
@@ -57,5 +58,17 @@ class LinkedList {
     }
     this.length++;
     return this;
+  }
+
+  shift() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    this.head = this.head.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    current.next = null;
+    return current;
   }
 }
