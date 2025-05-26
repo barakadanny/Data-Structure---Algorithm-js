@@ -82,4 +82,14 @@ class LinkedList {
     }
     return temp;
   }
+
+  set(index, value) {
+    let nodeIndex = this.get(index);
+    if (nodeIndex === undefined) {
+      return false;
+    } else {
+      nodeIndex.value = value;
+      return true;
+    }
+  }
 }
