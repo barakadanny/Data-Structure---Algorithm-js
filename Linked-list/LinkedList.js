@@ -85,11 +85,10 @@ class LinkedList {
 
   set(index, value) {
     let nodeIndex = this.get(index);
-    if (nodeIndex === undefined) {
-      return false;
-    } else {
+    if (nodeIndex) {
       nodeIndex.value = value;
       return true;
     }
+    return false;
   }
 }
