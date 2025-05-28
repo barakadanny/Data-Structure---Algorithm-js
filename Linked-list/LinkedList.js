@@ -106,4 +106,19 @@ class LinkedList {
     this.length++;
     return true;
   }
+
+  remove(index) {
+    if (index < 0 || index > this.length) return null;
+
+    if (index === 0) {
+      return this.shift();
+    }
+    if (index === this.length - 1) {
+      return this.pop();
+    }
+    const temp = this.get(index - 1);
+    delete temp.next;
+    this.length--;
+    return this;
+  }
 }
