@@ -121,4 +121,22 @@ class LinkedList {
     this.length--;
     return this;
   }
+
+  reverse() {
+    const head = this.head;
+    const tail = this.tail;
+    this.head = tail;
+    this.tail = head;
+    let previous = null;
+    let current = this.tail;
+    let following = this.tail;
+    while (current !== null) {
+      following = following.next;
+      current.next = previous;
+      previous = current;
+      current = following;
+    }
+
+    return this;
+  }
 }
