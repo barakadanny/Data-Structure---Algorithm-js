@@ -215,4 +215,32 @@ class LinkedList {
     }
     return false;
   }
+
+  /*
+   * Finds the kth node from the end of the linked list.
+   * It uses two pointers, slow and fast, to traverse the list.
+   * The fast pointer moves k steps ahead, and then both pointers move together until the fast pointer reaches the end.
+   * The slow pointer will be at the kth node from the end.
+   * @param {number}
+   * @returns {Node|null} - Returns the kth node from the end if it exists, otherwise null.
+   * @example
+   * const list = new LinkedList(1);
+   * list.push(2);
+   * list.push(3);
+   * list.push(4);
+   * console.log(list.findKthFromEnd(2)); // Output: Node with value 3
+   */
+  findKthFromEnd(k) {
+    if (!this.head) return null;
+    let slowPointer = this.head;
+    let fastPointer = this.head;
+    for (let i = 0; i < k; i++) {
+      fastPointer = fastPointer.next;
+    }
+    while (fastPointer !== null) {
+      fastPointer = fastPointer.next;
+      slowPointer = slowPointer.next;
+    }
+    return slowPointer;
+  }
 }
