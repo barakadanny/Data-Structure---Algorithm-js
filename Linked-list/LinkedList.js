@@ -150,4 +150,31 @@ class LinkedList {
     }
     return slowPointer;
   }
+
+  /*
+   * Detects if the linked list has a loop using Floyd's Cycle-Finding Algorithm.
+   * It uses two pointers, slow and fast, to traverse the list at different speeds.
+   * If they meet at some point, it indicates a loop exists.
+   * @param {Node} head - The head of the linked list.
+   * @returns {boolean} - Returns true if a loop is detected, otherwise false.
+   * @example
+   * const list = new LinkedList(1);
+   * list.push(2);
+   * list.push(3);
+   * list.head.next.next.next = list.head; // Creates a loop
+   * console.log(list.hasLoop()); // Output: true
+   */
+  hasLoop() {
+    if (!this.head) return false;
+    let slowPointer = this.head;
+    let fastPointer = this.head;
+    while (fastPointer !== null && fastPointer.next !== null) {
+      slowPointer = slowPointer.next;
+      fastPointer = fastPointer.next.next;
+      if (slowPointer == fastPointer) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
