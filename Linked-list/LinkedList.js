@@ -139,4 +139,15 @@ class LinkedList {
 
     return this;
   }
+
+  findMiddleNode() {
+    if (!this.head) return null;
+    let slowPointer = this.head;
+    let fastPointer = this.head;
+    while (fastPointer !== null && fastPointer.next !== null) {
+      slowPointer = slowPointer.next;
+      fastPointer = fastPointer.next.next;
+    }
+    return slowPointer;
+  }
 }
