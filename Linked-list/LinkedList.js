@@ -83,6 +83,14 @@ class LinkedList {
     return temp;
   }
 
+  /*
+   * Sets the value of the node at the specified index.
+   * If the index is out of bounds, it returns false.
+   * If the node exists, it updates its value and returns true.
+   * @param {number}
+   * @param {*} value - The value to set at the specified index.
+   * @returns {boolean} - Returns true if the value was set, otherwise false.
+   */
   set(index, value) {
     let nodeIndex = this.get(index);
     if (nodeIndex) {
@@ -92,6 +100,14 @@ class LinkedList {
     return false;
   }
 
+  /*
+   * Inserts a new node at the specified index.
+   * If the index is out of bounds, it returns false.
+   * If the index is equal to the length, it calls push to add the new node at the end.
+   * If the index is 0, it calls unshift to add the new node at the beginning.
+   * Otherwise, it finds the node at the index - 1, sets the new node's next pointer,
+   * and updates the next pointer of the previous node.
+   */
   insert(index, value) {
     if (index < 0 || index > this.length) return false;
 
@@ -107,6 +123,16 @@ class LinkedList {
     return true;
   }
 
+  /*
+   * Removes a node at the specified index.
+   * If the index is out of bounds, it returns null.
+   * If the index is 0, it calls shift to remove the head.
+   * If the index is the last node, it calls pop to remove the tail.
+   * Otherwise, it finds the node at the index - 1, removes the next pointer,
+   * and decrements the length of the list.
+   * @param {number}
+   * @returns {LinkedList|null} - Returns the modified linked list or null if index is invalid.
+   */
   remove(index) {
     if (index < 0 || index >= this.length) return null;
 
@@ -122,6 +148,11 @@ class LinkedList {
     return this;
   }
 
+  /*
+   * Reverses the linked list in place.
+   * It swaps the head and tail, and then iterates through the list,
+   * reversing the direction of the next pointers.
+   */
   reverse() {
     const head = this.head;
     const tail = this.tail;
@@ -140,6 +171,13 @@ class LinkedList {
     return this;
   }
 
+  /*
+   * Finds the middle node of the linked list.
+   * It uses two pointers, slow and fast, to traverse the list.
+   * The slow pointer moves one step at a time, while the fast pointer moves two steps.
+   * When the fast pointer reaches the end, the slow pointer will be at the middle node.
+   * @returns {Node|null} - Returns the middle node if it exists, otherwise null.
+   */
   findMiddleNode() {
     if (!this.head) return null;
     let slowPointer = this.head;
